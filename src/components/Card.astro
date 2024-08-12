@@ -1,0 +1,41 @@
+---
+//src/components/Card.astro
+const {name, position, aboutMe, twitter, github, zenn, profileImage } = Astro.props;
+
+import '../styles/card.css';
+---
+
+<div class="container">
+    <div class="card-container">
+        <div class="descripcion">
+            <h1>{name}</h1>
+            <h2>{position}</h2>
+            <p>{aboutMe}</p>
+            <div class="icons">
+                <a href={twitter} class="hover-text" target="_blank">
+                    <span class="tooltip-text" id="fade">
+                        X (Twitter)
+                    </span>
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+                <a href={github} class="hover-text" target="_blank">
+                    <span class="tooltip-text" id="fade">
+                        GitHub
+                    </span>
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href={zenn} class="hover-text" target="_blank">
+                    <span class="tooltip-text" id="fade">
+                        Zenn
+                    </span>
+                    <i class="bi bi-journal-text"></i>
+                </a>
+            </div>
+        </div>
+        <div class="image">
+            <img src={profileImage} alt="The Go gopher was designed by Renée French.">
+            <p><a href='https://go.dev/blog/gopher'>The Go gopher</a> was designed by <a href='https://www.instagram.com/reneefrench/'>Renée French</a>.</p>
+            <p>The icon was designed by <a href='https://twitter.com/avocadoneko'>@avocadoneko</a>.</p>
+        </div>
+    </div>
+</div>
