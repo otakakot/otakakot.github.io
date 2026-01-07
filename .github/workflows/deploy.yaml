@@ -20,13 +20,13 @@ jobs:
           private-key: ${{ secrets.CONTENT_GITHUB_APP_PRIVATE_KEY }}
           owner: ${{ github.repository_owner }}
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           token: ${{ steps.generate-token.outputs.token }}
           submodules: true
           fetch-depth: 0
       - name: Install, build, and upload your site output
-        uses: withastro/action@v2
+        uses: withastro/action@v5
   deploy:
     needs: build
     runs-on: ubuntu-latest
