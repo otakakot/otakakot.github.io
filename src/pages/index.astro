@@ -1,49 +1,259 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import '../styles/global.css'
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
+<html lang="ja">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>おーたかこーたろー</title>
+	<meta name="description" content="おーたかこーたろー" />
+	<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+	<style>
+		.center {
+			min-height: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 24px 16px;
+		}
+
+		.card {
+			width: 100%;
+			max-width: 420px;
+			background: var(--card);
+			border: 1px solid #ede9dd;
+			border-radius: 28px;
+			box-shadow:
+				0 20px 50px rgba(45, 58, 74, 0.10),
+				0 6px 16px rgba(45, 58, 74, 0.05);
+			padding: 48px 36px 40px;
+		}
+
+	.logo {
+		display: block;
+		margin: 0 auto 28px;
+		width: 120px;
+		height: 120px;
+		object-fit: cover;
+		border-radius: 50%;
+	}
+
+		h1 {
+			font-size: 26px;
+			font-weight: 700;
+			text-align: center;
+			margin: 0 0 8px;
+			letter-spacing: -0.5px;
+		}
+
+		.subtitle {
+			font-size: 14px;
+			text-align: center;
+			margin: 0 0 36px;
+			color: var(--muted);
+		}
+
+		.field { margin-bottom: 20px; }
+
+		.label {
+			display: block;
+			margin-bottom: 6px;
+			font-size: 13px;
+			font-weight: 500;
+			color: var(--subtle);
+		}
+
+		.input {
+			width: 100%;
+			padding: 16px;
+			font-size: 15px;
+			background: var(--input-bg);
+			border: 1px solid var(--border);
+			border-radius: 14px;
+			color: var(--text);
+			outline: none;
+			transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+		}
+
+		.input:focus {
+			background: var(--card);
+			border-color: var(--primary);
+			box-shadow: 0 0 0 3px rgba(62, 79, 99, 0.10);
+		}
+
+		.password-wrap { position: relative; }
+		.password-wrap .input { padding-right: 44px; }
+
+		.toggle-password {
+			position: absolute;
+			right: 12px;
+			top: 50%;
+			transform: translateY(-50%);
+			background: none;
+			border: none;
+			padding: 6px;
+			cursor: pointer;
+			color: var(--subtle);
+			transition: color 0.2s;
+		}
+
+		.toggle-password:hover { color: var(--primary); }
+
+		.options {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin: -4px 0 24px;
+			font-size: 13px;
+		}
+
+		.remember {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			color: var(--muted);
+			cursor: pointer;
+		}
+
+		.remember input {
+			width: 16px;
+			height: 16px;
+			accent-color: var(--primary);
+			cursor: pointer;
+		}
+
+		.forgot-link {
+			color: var(--primary);
+			font-weight: 500;
+			transition: color 0.2s;
+		}
+
+		.forgot-link:hover { color: var(--accent); text-decoration: underline; }
+
+		.btn {
+			width: 100%;
+			padding: 16px;
+			font-size: 15px;
+			font-weight: 700;
+			border-radius: 12px;
+			border: none;
+			cursor: pointer;
+			text-align: center;
+			transition: transform 0.1s, background 0.2s;
+		}
+
+		.btn:active { transform: scale(0.98); }
+
+		.btn-primary {
+			background-color: var(--primary);
+			color: #ffffff;
+			box-shadow: 0 8px 20px rgba(62, 79, 99, 0.25);
+		}
+
+		.btn-primary:hover {
+			background-color: var(--primary-dark);
+			box-shadow: 0 10px 24px rgba(62, 79, 99, 0.30);
+		}
+
+		.signup {
+			margin-top: 28px;
+			text-align: center;
+			font-size: 14px;
+			color: var(--muted);
+		}
+
+		.signup-link {
+			font-weight: 600;
+			color: var(--accent);
+			margin-left: 4px;
+		}
+
+		.signup-link:hover { color: var(--accent-dark); text-decoration: underline; }
+
+		.card-links {
+			margin-top: 28px;
+			padding-top: 24px;
+			border-top: 1px solid #ede9dd;
+			text-align: center;
+			font-size: 12px;
+			color: var(--subtle);
+		}
+
+		.card-links a {
+			color: var(--muted);
+			margin: 0 10px;
+			transition: color 0.2s;
+		}
+
+		.card-links a:hover { color: var(--primary); }
+	</style>
+</head>
+<body>
+	<div class="center">
+		<div class="card">
+			<img class="logo" src="/icon.jpg" alt="icon" />
+
+			<h1>otakakot</h1>
+			<p class="subtitle"></p>
+
+			<form id="loginForm" novalidate>
+				<div class="field">
+					<label class="label" for="email">メールアドレス</label>
+					<input class="input" id="email" type="email" autocomplete="email" />
+				</div>
+
+				<div class="field">
+					<label class="label" for="password">パスワード</label>
+					<div class="password-wrap">
+						<input class="input" id="password" type="password" autocomplete="current-password" />
+						<button type="button" class="toggle-password" id="togglePassword" aria-label="パスワードを表示">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+								<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+								<circle cx="12" cy="12" r="3"></circle>
+							</svg>
+						</button>
+					</div>
+				</div>
+
+				<div class="options">
+					<label class="remember">
+						<input type="checkbox" name="remember" />
+						<span>ログイン状態を保持</span>
+					</label>
+					<a href="#" class="forgot-link">パスワードを忘れた</a>
+				</div>
+
+				<button type="submit" class="btn btn-primary">ログイン</button>
+			</form>
+
+			<p class="signup">
+				アカウントをお持ちでないですか？
+				<a href="#" class="signup-link">新規登録</a>
 			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
+
+			<div class="card-links">
+				<a href="#">プライバシーポリシー</a>
+				<a href="#">利用規約</a>
+				<a href="#">お問い合わせ</a>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const togglePassword = document.getElementById('togglePassword');
+		const passwordInput = document.getElementById('password') as HTMLInputElement | null;
+		const loginForm = document.getElementById('loginForm');
+
+		togglePassword?.addEventListener('click', () => {
+			if (!passwordInput) return;
+			const isHidden = passwordInput.type === 'password';
+			passwordInput.type = isHidden ? 'text' : 'password';
+			togglePassword.setAttribute('aria-label', isHidden ? 'パスワードを非表示' : 'パスワードを表示');
+		});
+
+		loginForm?.addEventListener('submit', (event) => event.preventDefault());
+	</script>
+</body>
 </html>
