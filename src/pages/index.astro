@@ -65,6 +65,69 @@ import Layout from '../layouts/Layout.astro'
 		}
 
 		.toggle-password:hover { color: var(--primary); }
+
+		.options {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			margin: -4px 0 24px;
+			font-size: 13px;
+		}
+
+		.remember {
+			display: inline-flex;
+			align-items: center;
+			gap: 8px;
+			color: var(--muted);
+			cursor: pointer;
+		}
+
+		.remember input {
+			width: 16px;
+			height: 16px;
+			accent-color: var(--primary);
+			cursor: pointer;
+		}
+
+		.forgot-link {
+			color: var(--primary);
+			font-weight: 500;
+			transition: color 0.2s;
+		}
+
+		.forgot-link:hover { color: var(--accent); text-decoration: underline; }
+
+		.signup {
+			margin-top: 28px;
+			text-align: center;
+			font-size: 14px;
+			color: var(--muted);
+		}
+
+		.signup-link {
+			font-weight: 600;
+			color: var(--accent);
+			margin-left: 4px;
+		}
+
+		.signup-link:hover { color: var(--accent-dark); text-decoration: underline; }
+
+		.card-links {
+			margin-top: 28px;
+			padding-top: 24px;
+			border-top: 1px solid #ede9dd;
+			text-align: center;
+			font-size: 12px;
+			color: var(--subtle);
+		}
+
+		.card-links a {
+			color: var(--muted);
+			margin: 0 10px;
+			transition: color 0.2s;
+		}
+
+		.card-links a:hover { color: var(--primary); }
 	</style>
 
 	<div class="center">
@@ -93,10 +156,29 @@ import Layout from '../layouts/Layout.astro'
 					</div>
 				</div>
 
+				<div class="options">
+					<label class="remember">
+						<input type="checkbox" name="remember" />
+						<span>ログイン状態を保持</span>
+					</label>
+					<a href="#" class="forgot-link">パスワードを忘れた</a>
+				</div>
+
 				<div id="formError" class="form-error" role="alert" aria-live="assertive"></div>
 
 				<button type="submit" class="btn btn-primary" id="submitButton">ログイン</button>
 			</form>
+
+			<p class="signup">
+				アカウントをお持ちでないですか？
+				<a href="#" class="signup-link">新規登録</a>
+			</p>
+
+			<div class="card-links">
+				<a href="#">プライバシーポリシー</a>
+				<a href="#">利用規約</a>
+				<a href="#">お問い合わせ</a>
+			</div>
 		</div>
 	</div>
 
