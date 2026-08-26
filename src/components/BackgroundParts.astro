@@ -1,0 +1,50 @@
+---
+import { Image } from 'astro:assets'
+import parts1 from '../assets/parts1.png'
+import parts2 from '../assets/parts2.png'
+import parts3 from '../assets/parts3.png'
+import parts4 from '../assets/parts4.png'
+
+const COUNT = 18
+const SIZE_MIN = 125
+const SIZE_RANGE = 64
+
+const sources = [parts1, parts2, parts3, parts4]
+const parts = Array.from({ length: COUNT }, (_, i) => ({
+	src: sources[i % sources.length],
+	width: SIZE_MIN + Math.round(Math.random() * SIZE_RANGE),
+}))
+---
+
+<script>
+	const COLS = 6
+	const ROWS = 3
+	const bg = document.getElementById('bg')
+	if (bg) {
+		bg.querySelectorAll<HTMLImageElement>('.part').forEach((img, i) => {
+			img.style.left = `${(((i % COLS) + Math.random()) / COLS) * 100}%`
+			img.style.top = `${((Math.floor(i / COLS) + Math.random()) / ROWS) * 100}%`
+			img.loading = img.getBoundingClientRect().top < window.innerHeight ? 'eager' : 'lazy'
+		})
+	}
+</script>
+
+<div class="bg" id="bg" aria-hidden="true">
+	{parts.map(({ src, width }) => <Image src={src} width={width} alt="" class="part" />)}
+</div>
+
+<style>
+	.bg {
+		position: fixed;
+		inset: 0;
+		pointer-events: none;
+		z-index: -1;
+		opacity: 0.18;
+	}
+
+	.part {
+		position: absolute;
+		transform: translate(-50%, -50%);
+		user-select: none;
+	}
+</style>
