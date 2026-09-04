@@ -5,7 +5,16 @@ import icon from '../assets/icon.png'
 
 <div class="stack">
 	<main class="card">
-		<Image class="avatar" src={icon} alt="アイコン" width={240} height={240} loading="eager" />
+		<Image
+			class="avatar"
+			src={icon}
+			alt="アイコン"
+			width={120}
+			height={120}
+			widths={[120, 240, 360]}
+			loading="eager"
+			priority
+		/>
 		<h1 class="name">おーたかこーたろー</h1>
 		<p class="handle">@otakakot</p>
 

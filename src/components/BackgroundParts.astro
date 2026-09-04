@@ -30,7 +30,9 @@ const parts = Array.from({ length: COUNT }, (_, i) => ({
 </script>
 
 <div class="bg" id="bg" aria-hidden="true">
-	{parts.map(({ src, width }) => <Image src={src} width={width} alt="" class="part" />)}
+	{parts.map(({ src, width }) => (
+		<Image src={src} width={width} widths={[width, width * 2]} alt="" class="part" decoding="async" />
+	))}
 </div>
 
 <style>

@@ -17,6 +17,16 @@ const { title, description } = Astro.props
 	<title>{title}</title>
 	<meta name="description" content={description} />
 	<link rel="icon" type="image/png" href="/favicon.png" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content={Astro.site} />
+	<meta property="og:title" content={title} />
+	<meta property="og:description" content={description} />
+	<meta property="og:image" content={new URL('/ogp.png', Astro.site)} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content={title} />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:image" content={new URL('/ogp.png', Astro.site)} />
 	<slot name="head" />
 </head>
 <body>
